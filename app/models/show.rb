@@ -7,9 +7,6 @@ class Show < ActiveRecord::Base
         self.where("rating = ?", self.highest_rating).first
     end
 
-    # def self.most_popular_show
-    #     self.maximum(:rating)
-    # end
 
     def self.lowest_rating 
         self.minimum(:rating)
@@ -27,17 +24,14 @@ class Show < ActiveRecord::Base
         self.where("rating >= ?", 5)
     end
 
-    # def self.popular_shows
-    #     self.where(:rating > 5, [])
-    # end
 
-    def self.shows_by_alphabetical_order
-        self.order(:name)
-    end
+    # def self.shows_by_alphabetical_order
+    #     self.order(:name)
+    # end
 
     # will this also work?:
-    # def self.shows_by_alphabetical_order
-    #     self.order(name: :asc)
-    # end
+    def self.shows_by_alphabetical_order
+        self.order(name: :asc)
+    end
 
 end
